@@ -1,0 +1,206 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #ecf0f3;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    padding: 15px;
+    border-radius: 8px;
+
+    box-shadow:
+        12px 12px 20px #cdced1,
+        -12px -12px 20px #ffffff;
+}
+
+.title {
+    text-align: center;
+    color: #333;
+}
+
+.display {
+    width: 100%;
+}
+
+.display #screen {
+    width: 100%;
+    height: 70px;
+    font-size: 28px;
+    outline: none;
+    border: none;
+    text-align: right;
+    padding: 10px;
+    background: #ecf0f3;
+    border-radius: 6px;
+
+    box-shadow:
+        inset 8px 8px 8px #cdced1,
+        inset -8px -8px 8px #ffffff;
+}
+
+.btns {
+    width: 100%;
+    margin-top: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btns .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.btns .row button {
+    flex: 1;
+    min-width: 0;
+    height: 38px;
+    font-size: 11px;
+    border: none;
+    outline: none;
+    margin: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    box-shadow:
+        5px 5px 8px #00000020,
+        -5px -5px 8px #ffffff;
+
+    transition: 0.1s;
+}
+
+.btns .row button:hover {
+    box-shadow:
+        inset 5px 5px 8px rgba(16, 16, 16, 0.1),
+        inset -5px -5px 8px #ffffff;
+
+    background: #ffffff;
+}
+
+#eval {
+    background: #33ccff;
+    color: #ffffff;
+}
+
+#eval:hover {
+    background: #00ace6;
+}
+
+#ac {
+    background: #33cc33;
+    color: #ffffff;
+}
+
+#ce {
+    background: #ff3399;
+    color: #ffffff;
+}
+
+.integration {
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 8px;
+    background: #ecf0f3;
+
+    box-shadow:
+        inset 5px 5px 8px #cdced1,
+        inset -5px -5px 8px #ffffff;
+}
+
+.integration h3 {
+    color: #333;
+}
+
+.integration label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.integration input,
+.integration select {
+    width: 100%;
+    min-width: 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #ffffff;
+    font-size: 14px;
+}
+
+.integration > button {
+    width: 100%;
+    padding: 11px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 5px;
+    background: #33aaff;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.integration > button:hover {
+    background: #0088dd;
+}
+
+.integration-result {
+    margin-top: 15px;
+    padding: 12px;
+    min-height: 55px;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+    line-height: 1.6;
+    background: #ffffff;
+    border-radius: 5px;
+    color: #222;
+}
+
+.formula-reference {
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.formula-reference p {
+    padding: 8px;
+    margin: 6px 0;
+    background: #ffffff;
+    border-radius: 4px;
+}
+
+@media (max-width: 500px) {
+    body {
+        padding: 8px;
+    }
+
+    .container {
+        padding: 8px;
+    }
+
+    .btns .row button {
+        margin: 2px;
+        height: 35px;
+        font-size: 9px;
+    }
+
+    .display #screen {
+        font-size: 24px;
+    }
+}

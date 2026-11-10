@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Complex_Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Symbolic mathematics libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/nerdamer@1.1.13/nerdamer.core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nerdamer@1.1.13/Algebra.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nerdamer@1.1.13/Calculus.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nerdamer@1.1.13/Solve.js"></script>
+
+    <!-- Numerical mathematics library -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjs@14.6.0/lib/browser/math.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2 class="title">Complex Calculator</h2>
+
+    <div class="display">
+        <input id="screen" type="text" placeholder="0" readonly>
+    </div>
+
+    <div class="btns">
+
+        <div class="row">
+            <button id="ce" onclick="backspc()">CE</button>
+            <button onclick="backspace()">⌫</button>
+            <button class="btn">(</button>
+            <button class="btn">)</button>
+            <button class="btn">%</button>
+            <button id="ac" onclick="clearScreen()">AC</button>
+        </div>
+
+        <div class="row">
+            <button onclick="sin()">sin</button>
+            <button onclick="pi()">π</button>
+            <button class="btn">7</button>
+            <button class="btn">8</button>
+            <button class="btn">9</button>
+            <button class="btn">/</button>
+        </div>
+
+        <div class="row">
+            <button onclick="cos()">cos</button>
+            <button onclick="log()">ln</button>
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+            <button class="btn">6</button>
+            <button class="btn">*</button>
+        </div>
+
+        <div class="row">
+            <button onclick="tan()">tan</button>
+            <button onclick="sqrt()">√</button>
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button class="btn">-</button>
+        </div>
+
+        <div class="row">
+            <button onclick="e()">e</button>
+            <button onclick="pow()">x²</button>
+            <button class="btn">0</button>
+            <button class="btn">.</button>
+            <button id="eval" onclick="calculate()">=</button>
+            <button class="btn">+</button>
+        </div>
+
+        <div class="row">
+            <button onclick="sininverse()">sin⁻¹</button>
+            <button onclick="cosinverse()">cos⁻¹</button>
+            <button onclick="taninverse()">tan⁻¹</button>
+            <button onclick="cube()">x³</button>
+            <button onclick="inverse()">x⁻¹</button>
+            <button onclick="log10()">log</button>
+        </div>
+
+        <div class="row">
+            <button onclick="tenPowX()">10ˣ</button>
+            <button onclick="npr()">nPr</button>
+            <button onclick="ncr()">nCr</button>
+            <button onclick="logBase()">logₐb</button>
+            <button onclick="fact()">x!</button>
+            <button onclick="cubeRoot()">∛x</button>
+        </div>
+
+        <div class="row">
+            <button onclick="sinh()">sinh</button>
+            <button onclick="cosh()">cosh</button>
+            <button onclick="tanh()">tanh</button>
+            <button onclick="sinhInverse()">sinh⁻¹</button>
+            <button onclick="coshInverse()">cosh⁻¹</button>
+            <button onclick="tanhInverse()">tanh⁻¹</button>
+        </div>
+
+        <div class="row">
+            <button onclick="cot()">cot</button>
+            <button onclick="sec()">sec</button>
+            <button onclick="csc()">csc</button>
+            <button onclick="coth()">coth</button>
+            <button onclick="sech()">sech</button>
+            <button onclick="csch()">csch</button>
+        </div>
+
+        <div class="row">
+            <button onclick="cotInverse()">cot⁻¹</button>
+            <button onclick="secInverse()">sec⁻¹</button>
+            <button onclick="cscInverse()">csc⁻¹</button>
+            <button onclick="cothInverse()">coth⁻¹</button>
+            <button onclick="sechInverse()">sech⁻¹</button>
+            <button onclick="cschInverse()">csch⁻¹</button>
+        </div>
+
+        <div class="row">
+            <button onclick="absolute()">|x|</button>
+            <button onclick="power()">xʸ</button>
+            <button onclick="mod()">MOD</button>
+            <button onclick="factorialDouble()">n!!</button>
+            <button onclick="naturalLog1p()">ln(1+x)</button>
+            <button onclick="expFunction()">eˣ</button>
+        </div>
+
+        <div class="row">
+            <button onclick="asinHyperbolic()">asinh(x)</button>
+            <button onclick="acosHyperbolic()">acosh(x)</button>
+            <button onclick="atanHyperbolic()">atanh(x)</button>
+            <button onclick="signFunction()">sign</button>
+            <button onclick="roundFunction()">round</button>
+            <button onclick="floorFunction()">floor</button>
+        </div>
+
+    </div>
+
+    <!-- Integration calculator: same design structure -->
+
+    <div class="integration">
+
+        <h3>Integration Calculator</h3>
+
+        <label for="integrand">Enter a function:</label>
+
+        <input
+            type="text"
+            id="integrand"
+            placeholder="Example: sin(n*x) + x^2"
+        >
+
+
+
+        <label for="integrationVariable">Integration variable:</label>
+<input
+    type="text"
+    id="integrationVariable"
+    value="x"
+    placeholder="x"
+>
+
+
+
+        <label for="integrationType">Integration type:</label>
+
+        <select id="integrationType" onchange="toggleLimits()">
+            <option value="indefinite">Indefinite Integration</option>
+            <option value="definite">Definite Integration</option>
+        </select>
+
+        <div id="integrationLimits" style="display:none;">
+
+            <label for="lowerLimit">Lower limit:</label>
+            <input type="number" id="lowerLimit" value="0" step="any">
+
+            <label for="upperLimit">Upper limit:</label>
+            <input type="number" id="upperLimit" value="1" step="any">
+
+        </div>
+
+        <button onclick="integrateFunction()">Integrate</button>
+
+        <button onclick="numericalIntegration()">Numerical Integration</button>
+
+        <div id="integrationResult" class="integration-result">
+            Integration result appears here.
+        </div>
+
+        <h3>Integration Formula Reference</h3>
+
+        <div class="formula-reference">
+
+            <p>∫ xⁿ dx = xⁿ⁺¹/(n+1) + C, n ≠ -1</p>
+            <p>∫ 1/x dx = ln|x| + C</p>
+            <p>∫ eˣ dx = eˣ + C</p>
+            <p>∫ aˣ dx = aˣ/ln(a) + C</p>
+
+            <p>∫ sin(x) dx = -cos(x) + C</p>
+            <p>∫ cos(x) dx = sin(x) + C</p>
+            <p>∫ sin(nx) dx = -cos(nx)/n + C, n ≠ 0</p>
+            <p>∫ cos(nx) dx = sin(nx)/n + C, n ≠ 0</p>
+
+            <p>∫ sec²(x) dx = tan(x) + C</p>
+            <p>∫ csc²(x) dx = -cot(x) + C</p>
+            <p>∫ tan(x) dx = -ln|cos(x)| + C</p>
+            <p>∫ cot(x) dx = ln|sin(x)| + C</p>
+
+            <p>∫ sinh(x) dx = cosh(x) + C</p>
+            <p>∫ cosh(x) dx = sinh(x) + C</p>
+
+            <p>Integration by parts: ∫u dv = uv - ∫v du</p>
+            <p>Substitution: ∫f(g(x))g'(x)dx = ∫f(u)du</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
